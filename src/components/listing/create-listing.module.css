@@ -1,0 +1,21 @@
+
+.prompt {
+    margin: 20px 0px;
+}
+
+.formControl {
+    margin-bottom: 10px;
+}
+  
+
+.uploadContainer {
+    width: 100%;
+}
+
+.preview {
+    display: block;
+    margin: 20px 0px;
+    border-radius: 18px;
+    width: 300px;
+}
+

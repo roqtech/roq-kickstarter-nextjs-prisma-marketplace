@@ -1,5 +1,5 @@
 import AppLayout from "layout/app/app.layout";
-import Files from "components/file/files";
+import Listings from "components/listing/listings";
 import { withAuth } from "components/hocs/auth/with-auth";
 import styles from "pages/dashboard/dashboard.module.css";
 
@@ -7,7 +7,7 @@ function DashboardPage() {
   return (
     <AppLayout>
       <div className={styles.container}>
-        <Files />
+        <Listings />
       </div>
     </AppLayout>
   );

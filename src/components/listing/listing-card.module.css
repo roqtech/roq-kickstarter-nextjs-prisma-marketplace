@@ -1,7 +1,7 @@
 .card {
     width: 300px;
     padding: 10px!important;
-    height: 400px;
+    height: 420px;
 }
 
 .content {
@@ -20,11 +20,11 @@
 .img {
     object-fit: cover;
     width: 280px;
-    height: 250px;
+    height: 220px;
     
 }
 
-.userInfo {
+.listingInfo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -32,25 +32,18 @@
     padding: 10px;
 }
 
-.avatar {
-    background-color: rgb(var(--light-grey-rgb));
-    color: #FFFFFF;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 40px;
-}
-
-.filename {
-    height: 30px;
-    padding: 10px;
+.description {
+    height: 80px;
+    padding: 0px 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+
+.price {
+    color: rgb(var(--primary-color-rgb))
 }
 
 .timestamp {

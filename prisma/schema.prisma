@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  roqUserId String   @unique
+  buyerId   String?
+  buyer     Buyer?   @relation(fields: [buyerId], references: [id])
+  sellerId  String?
+  seller    Seller?  @relation(fields: [sellerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Buyer {
+  id          String  @id @default(uuid())
+  roqTenantId String  @unique
+  users       User[]
+  orders      Order[]
+}
+
+model Seller {
+  id          String    @id @default(uuid()) //The sellerId is mapped to a tenantId in ROQ
+  roqTenantId String    @unique
+  users       User[]
+  listings    Listing[]
+  orders      Order[]
+}
+
+model Listing {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  price       Float
+  fileId      String
+  sellerId    String
+  seller      Seller   @relation(fields: [sellerId], references: [id])
+  orders      Order[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Order {
+  id             String  @id @default(uuid())
+  listingId      String
+  listing        Listing @relation(fields: [listingId], references: [id])
+  buyerId        String
+  buyer          Buyer   @relation(fields: [buyerId], references: [id])
+  seller         Seller  @relation(fields: [sellerId], references: [id])
+  paymentStatus  String
+  deliveryStatus String
+  sellerId       String
+}
