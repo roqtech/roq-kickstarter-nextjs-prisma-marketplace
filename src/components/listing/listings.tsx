@@ -46,8 +46,6 @@ export default function Listings() {
         {data?.listings?.map((l) => (
           <ListingCard listing={l} key={l.id} />
         ))}
-
-        {error ? <>{JSON.stringify(error)}</> : <></>}
       </div>
     </div>
   );
