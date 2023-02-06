@@ -7,16 +7,16 @@ export class UserService {
     return prisma.user.findFirst({ where: { roqUserId } });
   }
 
-  static async syncUserAsSeller(roqUserId: string, tenantId: string) {
+  static async syncUserAsSeller(roqUserId: string, roqTenantId: string) {
     const seller = await prisma.seller.upsert({
-      where: { roqTenantId: tenantId },
-      update: { roqTenantId: tenantId },
-      create: { roqTenantId: tenantId },
+      where: { roqTenantId },
+      update: { roqTenantId },
+      create: { roqTenantId },
     });
 
     const user = await prisma.user.upsert({
       where: { roqUserId },
-      update: { sellerId: seller.roqTenantId },
+      update: { sellerId: seller.id },
       create: { roqUserId, sellerId: seller.id },
     });
 
