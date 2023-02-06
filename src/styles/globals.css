@@ -89,6 +89,7 @@ a {
 }
 .input:focus,.input:active {
   border: solid 1px rgba(var(--primary-color-rgb),1);
+  box-shadow: 0 0 10px rgba(var(--primary-color-rgb),.2) ;
 }
 
 .textarea {
@@ -101,4 +102,5 @@ a {
 }
 .textarea:focus,.textarea:active {
   border: solid 1px rgba(var(--primary-color-rgb),1);
+  box-shadow: 0 0 10px rgba(var(--primary-color-rgb),.2) ;
 }
