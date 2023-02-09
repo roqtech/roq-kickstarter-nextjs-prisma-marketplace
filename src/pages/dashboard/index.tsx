@@ -1,6 +1,6 @@
 import AppLayout from "layout/app/app.layout";
 import Listings from "components/listing/listings";
-import { withAuth } from "components/hocs/auth/with-auth";
+import { requireNextAuth } from "@roq/nextjs";
 import styles from "pages/dashboard/dashboard.module.css";
 
 function DashboardPage() {
@@ -13,7 +13,7 @@ function DashboardPage() {
   );
 }
 
-export default withAuth({
+export default requireNextAuth({
   redirectIfAuthenticated: false,
   redirectTo: "/login",
 })(DashboardPage);
